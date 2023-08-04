@@ -54,7 +54,7 @@ const toggleTabs = (openTabName) => {
       <div>
         <div
           v-if="tabName === 'chair'"
-          class="flex items-center overflow-x-scroll py-3 space-x-3 scrollbar-hide justify-center"
+          class="flex items-center overflow-x-scroll py-3 space-x-3 scrollbar-hide sm:justify-center"
         >
           <div
             v-for="(product, index) in products"
@@ -101,7 +101,7 @@ const toggleTabs = (openTabName) => {
         </div>
         <div
           v-if="tabName === 'beds'"
-          class="flex items-center overflow-x-scroll py-3 space-x-3 scrollbar-hide justify-center"
+          class="flex items-center overflow-x-scroll py-3 space-x-3 scrollbar-hide sm:justify-center"
         >
           <div
             v-for="(product, index) in products"
@@ -148,7 +148,7 @@ const toggleTabs = (openTabName) => {
         </div>
         <div
           v-if="tabName === 'sofa'"
-          class="flex items-center overflow-x-scroll py-3 space-x-3 scrollbar-hide justify-center"
+          class="flex items-center overflow-x-scroll py-3 space-x-3 scrollbar-hide sm:justify-center"
         >
           <div
             v-for="(product, index) in products"
@@ -195,7 +195,7 @@ const toggleTabs = (openTabName) => {
         </div>
         <div
           v-if="tabName === 'lamp'"
-          class="flex items-center overflow-x-scroll py-3 space-x-3 scrollbar-hide justify-center"
+          class="flex items-center overflow-x-scroll py-3 space-x-3 scrollbar-hide sm:justify-center"
         >
           <div
             v-for="(product, index) in products"

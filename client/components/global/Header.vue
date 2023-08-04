@@ -1,8 +1,31 @@
-<script setup></script>
+<script setup>
+import FlyoutMenu from "./FlyoutMenu.vue";
+
+onMounted(() => {
+  if (process.client) {
+    const header = document.querySelector("#nav-header");
+    const toggleClass = "is-sticky";
+
+    window.addEventListener("scroll", () => {
+      const currentScroll = window?.pageYOffset;
+      if (currentScroll > 20) {
+        header.classList.add('fixed');
+        header.classList.add('bg-gray-900');
+      } else {
+        header.classList.remove('fixed');
+        header.classList.remove('bg-gray-900');
+      }
+    });
+  }
+});
+</script>
 
 <template>
   <section class="absolute top-0 right-0 left-0 text-white">
-    <nav class="px-6 py-5 flex items-center justify-between">
+    <nav
+      id="nav-header"
+      class="w-full px-6 py-5 flex items-center justify-between z-30"
+    >
       <NuxtLink to="/" class="font-bold text-4xl">Panto</NuxtLink>
       <ul class="hidden md:flex items-center space-x-12 text-xl">
         <li>
@@ -33,9 +56,7 @@
             />
           </svg>
         </button>
-        <button class="block text-white md:hidden">
-          <Icon name="charm:menu-hamburger" class="w-10 h-auto" />
-        </button>
+        <FlyoutMenu />
       </div>
     </nav>
     <!-- Main Hero Content -->
