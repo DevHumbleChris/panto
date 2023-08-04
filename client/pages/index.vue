@@ -1,3 +1,9 @@
+<script setup>
+import Hero from '~/components/hero/index.vue'
+</script>
+
 <template>
-    <h1 class="text-green-500">Welcome</h1>
+    <section>
+        <Hero />
+    </section>
 </template>
