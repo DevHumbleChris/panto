@@ -1,4 +1,5 @@
 <script setup>
+const route = useRoute()
 useHead({
   htmlAttrs: {
     lang: 'en',
@@ -12,7 +13,7 @@ useHead({
     { name: 'twitter:description', content: 'Panto is a Ecommerce Site that sells furniture, its built with Nuxt 3, Medusa and Tailwind CSS.' },
     { name: 'twitter:site', content: 'https://panto-ke.vercel.app/' }
   ],
-  title: `Panto`,
+  title: `Panto - ${route?.meta?.title}`,
 })
 </script>
 
