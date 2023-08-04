@@ -10,6 +10,10 @@ export default defineNuxtConfig({
           lexend: ["Lexend", "sans-serif"],
         },
       },
+      plugins: [
+        require('tailwind-scrollbar-hide')
+        // ...
+      ]
     },
   },
 });
