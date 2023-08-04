@@ -13,6 +13,7 @@
     "@nuxt/image": "^1.0.0-rc.1",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18.17.1",
-    "nuxt": "^3.6.5"
+    "nuxt": "^3.6.5",
+    "nuxt-icon": "^0.4.2"
   }
 }
