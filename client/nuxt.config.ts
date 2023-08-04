@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     config: {
       theme: {
         fontFamil: {
-          poppins: ["Poppins", "sans-serif"],
+          lexend: ["Lexend", "sans-serif"],
         },
       },
     },

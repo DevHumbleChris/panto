@@ -18,7 +18,7 @@ useHead({
 </script>
 
 <template>
-  <main class="max-w-8xl font-poppins">
+  <main class="max-w-8xl font-lexend text-gray-700">
     <slot/>
   </main>
 </template>

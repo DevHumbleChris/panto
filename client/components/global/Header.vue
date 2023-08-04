@@ -40,7 +40,7 @@
     </nav>
     <!-- Main Hero Content -->
     <div
-      class="container max-w-sm py-1 sm:py-12 px-3 mx-auto mt-px text-left sm:max-w-md md:max-w-lg sm:px-4 md:max-w-none md:text-center"
+      class="container max-w-sm py-1 sm:py-16 px-3 mx-auto mt-px text-left sm:max-w-md md:max-w-lg sm:px-4 md:max-w-none md:text-center"
     >
       <h1
         class="text-3xl font-bold leading-10 tracking-tight text-center text-white md:text-center sm:text-4xl md:text-7xl lg:text-8xl"
