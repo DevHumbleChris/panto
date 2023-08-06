@@ -22,14 +22,13 @@ jobs:
       run: npm install
 
     - name: Build
-      run: |
-          cd panto/client  # Adjust to match your repository structure
-          npm install
-          npm run build
+      run: npm run build
 
     - name: Deploy to Droplet
-      uses: digitalocean/action-doctl@v2
+      uses: appleboy/ssh-action@v0.4.0
       with:
-        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+        host: ${{ secrets.DROPLET_IP }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          scp -i /path/to/your/private/key -r ./sites/panto/client/ user@droplet-ip:/path/to/sites/panto/client/
+          rsync -avz -e "ssh -i /path/to/your/private/key" ./sites/panto/client/ user@droplet-ip:/path/to/sites/panto/client/
