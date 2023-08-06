@@ -19,4 +19,4 @@ jobs:
         node-version: '18'
         
     - name: Build
-      run: cd /client && ls
+      run: cd /panto/client && ls
