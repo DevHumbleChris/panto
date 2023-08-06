@@ -27,8 +27,6 @@ jobs:
 
     - name: Deploy to Digital Ocean
       uses: digitalocean/action-doctl@v2
-      env:
-          SUPER_SECRET: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       with:
-        token: "$SUPER_SECRET"
+        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
         script: echo "Deploying using digitalocean/action-doctl@v2"
