@@ -20,3 +20,7 @@ jobs:
         
     - name: Build
       run: cd client
+
+    - name: Install dependencies
+      working-directory: ./client  # Navigate to the client directory
+      run: npm install
