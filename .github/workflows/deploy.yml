@@ -28,4 +28,4 @@ jobs:
       uses: digitalocean/action-doctl@v2
       with:
         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-        command: ssh --ssh-private-key "${{ secrets.SSH_PRIVATE_KEY }}" "${{ secrets.USER }}"@"${{ secrets.DROPLET_IP }}" "cd /path/to/panto/client && git pull origin main && npm install && npm run build"
+        command: ssh --ssh-private-key "${{ secrets.SSH_PRIVATE_KEY }}" "${{ secrets.USER }}"@"${{ secrets.DROPLET_IP }}" "cd /sites/panto/client && git pull origin main && npm install && npm run build"
