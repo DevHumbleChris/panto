@@ -18,7 +18,7 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Build
+    - name: CD To Directory
       run: cd client
 
     - name: Install dependencies
