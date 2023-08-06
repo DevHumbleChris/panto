@@ -24,3 +24,10 @@ jobs:
     - name: Install dependencies
       working-directory: ./client  # Navigate to the client directory
       run: npm install
+
+    - name: Deploy to DigitalOcean
+      uses: digitalocean/action-doctl@v2
+      with:
+        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+        command: ssh --ssh-private-key "${{ secrets.SSH_PRIVATE_KEY }}" "${{ secrets.USER }}"@"${{ secrets.DROPLET_IP }}" "cd ./sites/panto/client && git pull origin main && npm install && npm run build"
+
