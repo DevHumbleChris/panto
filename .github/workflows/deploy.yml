@@ -1,4 +1,4 @@
-name: Deploy and Build on DigitalOcean
+name: Deploy and Build on Droplet
 
 on:
   push:
@@ -16,16 +16,17 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '18'
+        node-version: '14'
 
     - name: Install dependencies
-      run: "cd /sites/panto/client && npm install"
+      run: npm install
 
     - name: Build
       run: npm run build
 
-    - name: Deploy to DigitalOcean
+    - name: Deploy to Droplet
       uses: digitalocean/action-doctl@v2
       with:
         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-        command: ssh --ssh-private-key "${{ secrets.SSH_PRIVATE_KEY }}" "${{ secrets.USER }}"@"${{ secrets.DROPLET_IP }}" "cd /sites/panto/client && git pull origin main && npm install && npm run build"
+        script: |
+          scp -i /path/to/your/private/key -r ./sites/panto/client/ user@droplet-ip:/path/to/sites/panto/client/
