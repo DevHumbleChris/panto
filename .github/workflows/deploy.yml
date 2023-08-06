@@ -28,5 +28,5 @@ jobs:
     - name: Deploy to Droplet
       uses: digitalocean/action-doctl@v2
       with:
-        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+        super_token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
         script: echo "Deploying using digitalocean/action-doctl@v2"
