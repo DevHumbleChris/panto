@@ -22,7 +22,7 @@ jobs:
         node-version: '18'
 
     - name: Install dependencies
-      run: npm install
+      run: npm install && echo ${{ secrets.USER }}
 
     - name: Install doctl
       uses: digitalocean/action-doctl@v2
