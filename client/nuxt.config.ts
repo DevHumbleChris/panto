@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     cssPath: "~/assets/css/tailwind.css",
     config: {
       theme: {
-        fontFamil: {
+        fontFamily: {
           lexend: ["Lexend", "sans-serif"],
         },
       },

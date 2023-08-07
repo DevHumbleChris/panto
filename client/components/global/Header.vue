@@ -64,7 +64,7 @@ onMounted(() => {
       class="container max-w-sm py-1 sm:py-16 px-3 mx-auto mt-px text-left sm:max-w-md md:max-w-lg sm:px-4 md:max-w-none md:text-center"
     >
       <h1
-        class="text-3xl font-bold leading-10 tracking-tight text-center text-white md:text-center sm:text-4xl md:text-7xl lg:text-8xl"
+        class="text-2xl font-bold leading-10 tracking-tight text-center text-white md:text-center sm:text-4xl md:text-7xl lg:text-8xl"
       >
         Make Your Interior More <br class="hidden sm:block" />
         Minimalistic & Modern
@@ -76,7 +76,7 @@ onMounted(() => {
         ease and speed.
       </div>
       <div
-        class="flex flex-col items-center justify-center mt-8 space-y-4 text-center sm:flex-row sm:space-y-0 sm:space-x-4"
+        class="flex flex-col items-center justify-center mt-4 sm:mt-8 space-y-4 text-center sm:flex-row sm:space-y-0 sm:space-x-4"
       >
         <div class="relative inline-flex w-full md:w-auto">
           <div
