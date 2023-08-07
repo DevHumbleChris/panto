@@ -22,10 +22,12 @@ jobs:
         node-version: '18'
 
     - name: Install dependencies
-      run: npm install && echo ${{ secrets.USER }}
+      run: npm install
 
     - name: Install doctl
       uses: digitalocean/action-doctl@v2
+      env:
+        TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       with:
-        token: dop_v1_b0d2f05a420d90b7e2de80d773a9b77aff2e4f661a21003fb0ed7982d44d536e
+        token: "$TOKEN"
 
