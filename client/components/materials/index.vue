@@ -1,5 +1,5 @@
 <template>
-  <section class="my-6 p-6 sm:p-12">
+  <section class="my-3 p-6 sm:p-12">
     <div class="grid grid-cols-1 sm:grid-cols-2 items-center gap-16">
         <div class="space-y-4">
           <h2 class="uppercase text-lg text-[#E58411] font-semibold">

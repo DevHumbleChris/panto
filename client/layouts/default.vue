@@ -1,4 +1,5 @@
 <script setup>
+import Footer from '~/components/global/Footer.vue';
 const route = useRoute()
 useHead({
   htmlAttrs: {
@@ -20,5 +21,6 @@ useHead({
 <template>
   <main class="max-w-8xl font-lexend text-gray-700">
     <slot/>
+    <Footer />
   </main>
 </template>
