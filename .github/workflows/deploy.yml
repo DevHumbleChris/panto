@@ -25,7 +25,7 @@ jobs:
       run: npm install
 
     - name: Deploy to Digital Ocean
-      uses: digital ocean/action-doctl@v2
+      uses: digitalocean/action-doctl@v2
       with:
         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
         script: echo "Deploying using digitalocean/action-doctl@v2"
