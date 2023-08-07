@@ -1,7 +1,7 @@
 <template>
-  <section class="p-12 my-6">
+  <section class="p-6 sm:p-12 my-6">
     <div class="grid grid-cols-1 sm:grid-cols-6 items-center gap-8 sm:gap-20">
-      <h1 class="sm:col-span-1 text-2xl font-bold">Why Choosing Us</h1>
+      <h1 class="sm:col-span-1 text-2xl font-bold">Why Choose Us</h1>
       <div class="sm:col-span-5 grid grid-cols-1 sm:grid-cols-3 gap-12">
         <div class="cols-span-1 space-y-2">
           <h2 class="text-lg font-bold">Luxury facilities</h2>

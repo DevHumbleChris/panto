@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="grid grid-cols-1 sm:grid-cols-2 px-5 py-6 sm:py-12 gap-24">
+    <div class="grid grid-cols-1 items-center sm:grid-cols-2 px-5 py-6 sm:py-12 gap-24">
       <nuxt-img src="/images/experience-img.jpg" class="max-w-md -ml-10 sm:ml-4 overflow-x-hidden" />
       <div class="space-y-2 sm:-ml-20 -mt-12 sm:-mt-0 sm:space-y-3">
         <h2 class="uppercase text-lg text-[#E58411] font-semibold">experiences</h2>

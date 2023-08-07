@@ -17,7 +17,7 @@ const toggleTabs = (openTabName) => {
 
 <template>
   <section class="bg-[#F7F7F7]">
-    <div class="p-12 space-y-4">
+    <div class="p-6 sm:p-12 space-y-4">
       <h2 class="text-3xl text-center font-bold">Best Selling Product</h2>
       <div class="flex items-center justify-center">
         <div class="bg-[#EEEEEE] flex space-x-3 rounded-full p-2">
