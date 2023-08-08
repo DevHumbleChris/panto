@@ -1,7 +1,11 @@
 <script setup>
+import { useCartStore } from "~/stores/cart";
+
+const cartStore = useCartStore();
 const products = useState("products", () => {
   return [
     {
+      id: 1,
       name: "Sakarias Armchair",
       rating: 5,
       type: "chair",
@@ -9,6 +13,7 @@ const products = useState("products", () => {
       imgURL: "/images/sakarias-armchair-black.jpg",
     },
     {
+      id: 2,
       name: "Baltsar Chair",
       rating: 5,
       type: "chair",
@@ -16,6 +21,7 @@ const products = useState("products", () => {
       imgURL: "/images/Balstar-Chair.png",
     },
     {
+      id: 3,
       name: "Anjay Chair",
       rating: 5,
       type: "chair",
@@ -23,6 +29,7 @@ const products = useState("products", () => {
       imgURL: "/images/Anjay-Chair.png",
     },
     {
+      id: 4,
       name: "Nyantuy Chair",
       rating: 5,
       type: "chair",
@@ -33,9 +40,44 @@ const products = useState("products", () => {
 });
 
 const tabName = useState("tabName", () => "chair");
+const cart = computed(() => {
+  return cartStore?.cart;
+});
 
 const toggleTabs = (openTabName) => {
   tabName.value = openTabName;
+};
+
+const addToCart = (prod) => {
+  cartStore?.addToCart(prod);
+};
+
+const checkIfQuantityExists = (prod) => {
+  const isAddedToCart = cart?.value.filter(
+    (cartProd) => cartProd?.id === prod?.id
+  );
+  if (isAddedToCart.length > 0) {
+    console.log(cart?.value);
+    return true;
+  }
+  return false;
+};
+
+const getProdQuantity = (prod) => {
+  let quantity;
+  const filteredCart = cart?.value.filter(
+    (cartProd) => cartProd?.id === prod?.id
+  );
+  quantity = filteredCart[0]?.quantity;
+  return quantity;
+};
+
+const incCartQuantity = (prod) => {
+  cartStore?.incCartQuantity(prod);
+};
+
+const decCartQuantity = (prod) => {
+  cartStore?.decCartQuantity(prod);
 };
 </script>
 
@@ -118,17 +160,37 @@ const toggleTabs = (openTabName) => {
                   <sup>$</sup>{{ product?.price }}
                 </p>
                 <div class="flex items-center">
-                  <div class="hidden flex items-center space-x-2">
-                    <button class="bg-[#0D1B39] text-white py-1 px-2 rounded-md">+</button>
-                    <p class="text-[#F6B76F] font-bold">3</p>
-                    <button class="bg-[#0D1B39] text-white py-1 px-2 rounded-md">-</button>
+                  <div
+                    v-if="checkIfQuantityExists(product) === true"
+                    class="flex items-center space-x-2"
+                  >
+                    <button
+                      @click="decCartQuantity(product)"
+                      class="bg-[#0D1B39] text-white py-1 px-2 rounded-md"
+                    >
+                      -
+                    </button>
+                    <p class="text-[#F6B76F] font-bold">
+                      {{ getProdQuantity(product) }}
+                    </p>
+                    <button
+                      @click="incCartQuantity(product)"
+                      class="bg-[#0D1B39] text-white py-1 px-2 rounded-md"
+                    >
+                      +
+                    </button>
                   </div>
 
                   <button
+                    v-if="checkIfQuantityExists(product) === false"
+                    @click="addToCart(product)"
                     class="bg-[#0D1B39] group flex items-center text-white rounded-full p-2 space-x-2"
                   >
-                    <Icon name="ion:plus-round" class="group-hover:hidden"/>
-                    <span class="hidden group-hover:block transition-opacity duration-700 ease-in-out delay-150">Add To Cart</span>
+                    <Icon name="ion:plus-round" class="group-hover:hidden" />
+                    <span
+                      class="hidden group-hover:block transition-opacity duration-700 ease-in-out delay-150"
+                      >Add To Cart</span
+                    >
                   </button>
                 </div>
               </div>
