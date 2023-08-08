@@ -1,22 +1,33 @@
 <script setup>
 import FlyoutMenu from "./FlyoutMenu.vue";
+import Cart from "~/components/cart/index.vue";
+import { useCartStore } from "~/stores/cart";
+
+const cartStore = useCartStore();
 
 onMounted(() => {
   if (process.client) {
     const header = document.querySelector("#nav-header");
-    const toggleClass = "is-sticky";
 
     window.addEventListener("scroll", () => {
       const currentScroll = window?.pageYOffset;
       if (currentScroll > 20) {
-        header.classList.add('fixed');
-        header.classList.add('bg-gray-900');
+        header.classList.add("fixed");
+        header.classList.add("bg-gray-900");
       } else {
-        header.classList.remove('fixed');
-        header.classList.remove('bg-gray-900');
+        header.classList.remove("fixed");
+        header.classList.remove("bg-gray-900");
       }
     });
   }
+});
+
+const openCart = () => {
+  cartStore?.openCart();
+};
+
+const noOfItemsInCart = computed(() => {
+  return cartStore?.noOfItemsInCart;
 });
 </script>
 
@@ -42,7 +53,7 @@ onMounted(() => {
         </li>
       </ul>
       <div class="flex items-center space-x-4">
-        <button class="block">
+        <button @click="openCart" class="relative block">
           <svg
             width="34"
             height="34"
@@ -55,7 +66,14 @@ onMounted(() => {
               fill="white"
             />
           </svg>
+          <p
+            v-if="noOfItemsInCart > 0"
+            class="text-white absolute top-0 right-0 z-10 bg-[#F6B76F] font-bold rounded-full h-5 w-5 text-center"
+          >
+            <span class="block -mt-[0.2rem]">{{ noOfItemsInCart }}</span>
+          </p>
         </button>
+        <Cart />
         <FlyoutMenu />
       </div>
     </nav>
