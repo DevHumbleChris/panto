@@ -1,10 +1,34 @@
 <script setup>
 const products = useState("products", () => {
   return [
-    { name: "Sakarias Armchair", rating: 5, type: "chair", price: "392", imgURL: '/images/sakarias-armchair-black.jpg' },
-    { name: "Baltsar Chair", rating: 5, type: "chair", price: "299", imgURL: '/images/Balstar-Chair.png' },
-    { name: "Anjay Chair", rating: 5, type: "chair", price: "519", imgURL: '/images/Anjay-Chair.png' },
-    { name: "Nyantuy Chair", rating: 5, type: "chair", price: "921", imgURL: '/images/Nyantuy-Chair.png' },
+    {
+      name: "Sakarias Armchair",
+      rating: 5,
+      type: "chair",
+      price: "392",
+      imgURL: "/images/sakarias-armchair-black.jpg",
+    },
+    {
+      name: "Baltsar Chair",
+      rating: 5,
+      type: "chair",
+      price: "299",
+      imgURL: "/images/Balstar-Chair.png",
+    },
+    {
+      name: "Anjay Chair",
+      rating: 5,
+      type: "chair",
+      price: "519",
+      imgURL: "/images/Anjay-Chair.png",
+    },
+    {
+      name: "Nyantuy Chair",
+      rating: 5,
+      type: "chair",
+      price: "921",
+      imgURL: "/images/Nyantuy-Chair.png",
+    },
   ];
 });
 
@@ -65,7 +89,10 @@ const toggleTabs = (openTabName) => {
               v-if="product?.type === 'chair'"
               class="shrink-0 bg-white px-3 py-4 rounded-2xl shadow space-y-3"
             >
-              <nuxt-img :src="product?.imgURL" class="h-60 w-full object-cover" />
+              <nuxt-img
+                :src="product?.imgURL"
+                class="h-60 w-full object-cover"
+              />
               <div class="space-y-1">
                 <p class="text-[#8D8D8D] capitalize">{{ product?.type }}</p>
                 <p class="text-[#0D1B39] font-semibold text-xl">
@@ -90,11 +117,20 @@ const toggleTabs = (openTabName) => {
                 <p class="text-[##0D1B39] font-bold">
                   <sup>$</sup>{{ product?.price }}
                 </p>
-                <button
-                  class="bg-[#0D1B39] text-white rounded-full p-2 w-8 h-8"
-                >
-                  <Icon name="ion:plus-round" class="-mt-3" />
-                </button>
+                <div class="flex items-center">
+                  <div class="hidden flex items-center space-x-2">
+                    <button class="bg-[#0D1B39] text-white py-1 px-2 rounded-md">+</button>
+                    <p class="text-[#F6B76F] font-bold">3</p>
+                    <button class="bg-[#0D1B39] text-white py-1 px-2 rounded-md">-</button>
+                  </div>
+
+                  <button
+                    class="bg-[#0D1B39] group flex items-center text-white rounded-full p-2 space-x-2"
+                  >
+                    <Icon name="ion:plus-round" class="group-hover:hidden"/>
+                    <span class="hidden group-hover:block transition-opacity duration-700 ease-in-out delay-150">Add To Cart</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
