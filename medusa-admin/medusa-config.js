@@ -28,8 +28,8 @@ const ADMIN_CORS = process.env.STORE_CORS || process.env.STORE_CORS_GITPOD;
 
 
 // CORS to avoid issues when consuming Medusa from a client
-const STORE_CORS = process.env.STORE_CORS_GITPOD;
-// const STORE_CORS = process.env.STORE_CORS
+// const STORE_CORS = process.env.STORE_CORS_GITPOD;
+const STORE_CORS = process.env.STORE_CORS
 
 
 const DATABASE_URL =
