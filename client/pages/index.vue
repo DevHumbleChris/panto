@@ -8,6 +8,9 @@ import Testimonials from '~/components/testimonials/index.vue'
 definePageMeta({
     title: 'Home'
 })
+const client = useMedusaClient();
+const data = await client.products.list();
+console.log(data)
 </script>
 
 <template>
